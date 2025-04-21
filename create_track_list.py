@@ -66,10 +66,9 @@ class TrackListCreator():
         # Get search query
         query = self.search_txt.get().strip().lower()
 
-        # If query is empty, show all tracks
+        # If query is empty, show status
         if not query:
-            for key, item in lib.library.items():
-                self.search_txt_widget.insert(tk.END, f"{key}: {item.name} - {item.artist}\n")
+            self.status_lbl.configure(text=f"No tracks found matching '{query}'")
             return
 
         # Search for tracks matching query
